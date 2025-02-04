@@ -27,7 +27,6 @@ ggplot(rogue_df_sample, aes(x = Sample, y = ROGUE, fill = Sample)) +
              position = position_jitter(width = 0.15, height = 0), 
              size = 2, alpha = 0.8) +
   scale_fill_manual(values = palette1)
-write.xlsx(rogue.res.AA, file = "rogue.res.AA.xlsx",rowNames=TRUE)
 
 #AA_NL
 AA_NL<-subset(Infla_scRNA_harmony_res0.2_metabolic,idents=c("AA_NL"))
@@ -50,8 +49,6 @@ ggplot(rogue_df_sample, aes(x = Sample, y = ROGUE, fill = Sample)) +
              position = position_jitter(width = 0.15, height = 0), 
              size = 2, alpha = 0.8) +
   scale_fill_manual(values = palette1)
-write.xlsx(rogue.res.AA_NL, file = "rogue.res.AA_NL.xlsx",rowNames=TRUE)
-write.xlsx(rogue.res.AA_NL, file = "rogue.res.AA_NL.dataset.xlsx",rowNames=TRUE)
 
 #AD
 AD<-subset(Infla_scRNA_harmony_res0.2_metabolic,idents=c("AD"))
@@ -97,7 +94,6 @@ ggplot(rogue_df_sample, aes(x = Sample, y = ROGUE, fill = Sample)) +
              position = position_jitter(width = 0.15, height = 0), 
              size = 2, alpha = 0.8) +
   scale_fill_manual(values = palette1)
-write.xlsx(rogue.res.AD_NL, file = "rogue.res.AD_NL.xlsx",rowNames=TRUE)
 
 #HS
 HS<-subset(Infla_scRNA_harmony_res0.2_metabolic,idents=c("HS"))
@@ -121,7 +117,6 @@ ggplot(rogue_df_sample, aes(x = Sample, y = ROGUE, fill = Sample)) +
              position = position_jitter(width = 0.15, height = 0), 
              size = 2, alpha = 0.8) +
   scale_fill_manual(values = palette1)
-write.xlsx(rogue.res.HS, file = "rogue.res.HS.xlsx",rowNames=TRUE)
 
 #PN
 PN<-subset(Infla_scRNA_harmony_res0.2_metabolic,idents=c("PN"))
@@ -145,7 +140,6 @@ ggplot(rogue_df_sample, aes(x = Sample, y = ROGUE, fill = Sample)) +
              position = position_jitter(width = 0.15, height = 0), 
              size = 2, alpha = 0.8) +
   scale_fill_manual(values = palette1)
-write.xlsx(rogue.res.PN, file = "rogue.res.PN.xlsx",rowNames=TRUE)
 
 #Psoriasis
 Psoriasis<-subset(Infla_scRNA_harmony_res0.2_metabolic,idents=c("Psoriasis"))
@@ -169,7 +163,6 @@ ggplot(rogue_df_sample, aes(x = Sample, y = ROGUE, fill = Sample)) +
              position = position_jitter(width = 0.15, height = 0), 
              size = 2, alpha = 0.8) +
   scale_fill_manual(values = palette2)
-write.xlsx(rogue.res.Psoriasis, file = "rogue.res.Psoriasis.xlsx",rowNames=TRUE)
 
 #Psoriasis_NL
 table(Infla_scRNA_harmony_res0.2_metabolic$type_NL)
@@ -194,7 +187,6 @@ ggplot(rogue_df_sample, aes(x = Sample, y = ROGUE, fill = Sample)) +
              position = position_jitter(width = 0.15, height = 0), 
              size = 2, alpha = 0.8) +
   scale_fill_manual(values = palette1)
-write.xlsx(rogue.res.Psoriasis_NL, file = "rogue.res.Psoriasis_NL.xlsx",rowNames=TRUE)
 
 #Normal
 Normal<-subset(Infla_scRNA_harmony_res0.2_metabolic,idents=c("Normal"))
@@ -206,7 +198,6 @@ table(meta$group3)
 table(meta$cell.type,meta$group5)
 
 rogue.res.Normal<- rogue(expr, labels = meta$cell.type, samples =meta$group5,platform = "UMI")
-write.xlsx(rogue.res.Normal, file = "rogue.res.Normal.根据celltype.xlsx",rowNames=TRUE)
 
 rogue.boxplot(rogue.res.Normal)
 rogue_df_sample <- data.frame(Sample = names(rogue.res.Normal),
@@ -223,8 +214,6 @@ ggplot(rogue_df_sample, aes(x = Sample, y = ROGUE, fill = Sample)) +
              position = position_jitter(width = 0.15, height = 0), 
              size = 2, alpha = 0.8) +
   scale_fill_manual(values = palette1)
-write.xlsx(rogue.res.Normal, file = "rogue.res.Normal.xlsx",rowNames=TRUE)
-
 
 #coefficient of variation calculation
 cv <- function(x) {
